@@ -22,14 +22,14 @@ function should.unpack()
   local data = osc.pack('/foo/bar', -2.4, 3.5, 'hello')
   local url, v1, v2, s1 = osc.unpack(data)
   assertEqual('/foo/bar', url)
-  assertEqual(-2.4, v1)
-  assertEqual(3.5, v2)
+  assertEqual(-2.4, v1, 0.0000001)
+  assertEqual(3.5, v2, 0.0000001)
 end
 
 local function testValue(value)
   local url, val = osc.unpack(osc.pack('/some/url', value))
   assertEqual('/some/url', url)
-  assertValueEqual(value, val)
+  assertValueEqual(value, val, 0.0000001)
 end
 
 function should.packBoolean()
