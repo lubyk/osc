@@ -599,15 +599,15 @@ OutboundPacketStream& OutboundPacketStream::operator<<( double rhs )
 
 OutboundPacketStream& OutboundPacketStream::operator<<( const char *rhs )
 {
-    CheckForAvailableArgumentSpace( RoundUp4(std::strlen(rhs) + 1) );
+    size_t rhsLength = std::strlen(rhs) + 1;
+    CheckForAvailableArgumentSpace( RoundUp4(rhsLength) );
 
     *(--typeTagsCurrent_) = STRING_TYPE_TAG;
     std::strcpy( argumentCurrent_, rhs );
-    std::size_t rhsLength = std::strlen(rhs);
-    argumentCurrent_ += rhsLength + 1;
+    argumentCurrent_ += rhsLength;
 
     // zero pad to 4-byte boundary
-    std::size_t i = rhsLength + 1;
+    std::size_t i = rhsLength;
     while( i & 0x3 ){
         *argumentCurrent_++ = '\0';
         ++i;
@@ -674,6 +674,26 @@ OutboundPacketStream& OutboundPacketStream::operator<<( const ArrayTerminator& r
     CheckForAvailableArgumentSpace(0);
 
     *(--typeTagsCurrent_) = ARRAY_END_TYPE_TAG;
+
+    return *this;
+}
+
+OutboundPacketStream& OutboundPacketStream::operator<<( const HashInitiator& rhs )
+{
+    (void) rhs;
+    CheckForAvailableArgumentSpace(0);
+
+    *(--typeTagsCurrent_) = HASH_BEGIN_TYPE_TAG;
+
+    return *this;
+}
+
+OutboundPacketStream& OutboundPacketStream::operator<<( const HashTerminator& rhs )
+{
+    (void) rhs;
+    CheckForAvailableArgumentSpace(0);
+
+    *(--typeTagsCurrent_) = HASH_END_TYPE_TAG;
 
     return *this;
 }

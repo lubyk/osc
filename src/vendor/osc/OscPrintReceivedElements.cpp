@@ -164,12 +164,11 @@ std::ostream& operator<<( std::ostream & os,
             }
             break;
 
-        case ARRAY_BEGIN_TYPE_TAG:
-            os << "[";
-            break;
-
-        case ARRAY_END_TYPE_TAG:
-            os << "]";
+        case ARRAY_BEGIN_TYPE_TAG: /* continue */
+        case ARRAY_END_TYPE_TAG: /* continue */
+        case HASH_BEGIN_TYPE_TAG: /* continue */
+        case HASH_END_TYPE_TAG:
+            os << arg.TypeTag();
             break;
 
         default:

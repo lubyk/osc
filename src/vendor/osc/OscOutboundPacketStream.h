@@ -118,11 +118,15 @@ public:
     OutboundPacketStream& operator<<( const TimeTag& rhs );
     OutboundPacketStream& operator<<( double rhs );
     OutboundPacketStream& operator<<( const char* rhs );
+    void OutputString(const char *str, size_t sz);
     OutboundPacketStream& operator<<( const Symbol& rhs );
     OutboundPacketStream& operator<<( const Blob& rhs );
 
     OutboundPacketStream& operator<<( const ArrayInitiator& rhs );
     OutboundPacketStream& operator<<( const ArrayTerminator& rhs );
+
+    OutboundPacketStream& operator<<( const HashInitiator& rhs );
+    OutboundPacketStream& operator<<( const HashTerminator& rhs );
 
 private:
 

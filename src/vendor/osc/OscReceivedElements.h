@@ -274,6 +274,9 @@ public:
     
     bool IsArrayBegin() const { return *typeTagPtr_ == ARRAY_BEGIN_TYPE_TAG; }
     bool IsArrayEnd() const { return *typeTagPtr_ == ARRAY_END_TYPE_TAG; }
+
+    bool IsHashBegin() const { return *typeTagPtr_ == HASH_BEGIN_TYPE_TAG; }
+    bool IsHashEnd() const { return *typeTagPtr_ == HASH_END_TYPE_TAG; }
     // Calculate the number of top-level items in the array. Nested arrays count as one item.
     // Only valid at array start. Will throw an exception if IsArrayStart() == false.
     std::size_t ComputeArrayItemCount() const;

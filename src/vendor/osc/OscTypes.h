@@ -127,7 +127,9 @@ enum TypeTagValues {
     SYMBOL_TYPE_TAG = 'S',
     BLOB_TYPE_TAG = 'b',
     ARRAY_BEGIN_TYPE_TAG = '[',
-    ARRAY_END_TYPE_TAG = ']'
+    ARRAY_END_TYPE_TAG = ']',
+    HASH_BEGIN_TYPE_TAG = '{',
+    HASH_END_TYPE_TAG = '}',
 };
 
 
@@ -233,6 +235,16 @@ struct ArrayTerminator{
 };
 
 extern ArrayTerminator EndArray;
+
+struct HashInitiator{
+};
+
+extern HashInitiator BeginHash;
+
+struct HashTerminator{
+};
+
+extern HashTerminator EndHash;
 
 } // namespace osc
 

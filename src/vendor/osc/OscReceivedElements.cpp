@@ -537,8 +537,10 @@ void ReceivedMessageArgumentIterator::Advance()
             }
             break;
 
-        case ARRAY_BEGIN_TYPE_TAG:
-        case ARRAY_END_TYPE_TAG: 
+        case ARRAY_BEGIN_TYPE_TAG: /* continue */
+        case ARRAY_END_TYPE_TAG:   /* continue */
+        case HASH_BEGIN_TYPE_TAG:  /* continue */
+        case HASH_END_TYPE_TAG: 
 
             //    [ Indicates the beginning of an array. The tags following are for
             //        data in the Array until a close brace tag is reached.
@@ -650,6 +652,14 @@ void ReceivedMessage::Init( const char *message, osc_bundle_element_size_t size 
 
                     case ARRAY_END_TYPE_TAG:
                         --arrayLevel;
+                        // (zero length argument data)
+                        break;
+
+                    case HASH_BEGIN_TYPE_TAG:
+                        // (zero length argument data)
+                        break;
+
+                    case HASH_END_TYPE_TAG:
                         // (zero length argument data)
                         break;
 
