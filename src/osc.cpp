@@ -95,7 +95,7 @@ static void pack_lua(lua_State *L, osc::OutboundPacketStream &pk, int index) {
   int type = lua_type(L, index);
   switch (type) {
   case LUA_TNUMBER:
-    pk << lua_tonumber(L, index);
+    pk << (float)lua_tonumber(L, index);
     return;
   case LUA_TBOOLEAN:
     if (lua_toboolean(L, index)) {

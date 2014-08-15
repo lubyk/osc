@@ -1,5 +1,6 @@
-== 1.0.0
+== 1.0.0 2014-08-15
 
   * Migrated code from lk.
   * Using oscpack 1.1.0.
   * Added support for hash.
+  * Created Server and Client classes to wrap around lens.Socket.
