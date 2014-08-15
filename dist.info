@@ -1,0 +1,14 @@
+name = "osc"
+version = "1.0.0"
+
+desc = "OpenSoundControl for Lua with some wrappers around lens.Socket."
+author = "Ross Bencina, Gaspard Bucher"
+license = "MIT"
+url = "http://doc.lubyk.org/osc.html"
+maintainer = "Ross Bencina, Gaspard Bucher"
+
+depends = {
+  "lua >= 5.1, < 5.3",
+  "lub >= 1.0.3, < 2.0",
+}
+

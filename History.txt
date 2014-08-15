@@ -1,0 +1,5 @@
+== 1.0.0
+
+  * Migrated code from lk.
+  * Using oscpack 1.1.0.
+  * Added support for hash.
