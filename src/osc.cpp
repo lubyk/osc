@@ -36,6 +36,12 @@
 #define MAX_DEPTH 10000
 #define MAX_BUFF_SIZE 8196
 
+#if LUA_VERSION_NUM > 501
+#define COMPAT_GETN luaL_len
+#else
+#define COMPAT_GETN luaL_getn
+#endif
+
 static const char *parse_osc_value(lua_State *L, const char *start_type_tags, osc::ReceivedMessage::const_iterator &arg);
 static void pack_lua(lua_State *L, osc::OutboundPacketStream &pk, int index);
 
@@ -78,7 +84,8 @@ static void pack_table(lua_State *L, osc::OutboundPacketStream &pk, int index) {
     // ERROR
     throw dub::Exception("Cannot send table (recursive or too large).");
   }
-  size_t sz = luaL_getn(L, index);
+
+  size_t sz = COMPAT_GETN(L, index);
 
   if (sz > 0) {
     pack_array(L, pk, index, sz);
