@@ -3,6 +3,8 @@
 
   This is a simple UDP client (based on lens.Socket) to send OSC messages.
 
+  NOTE: This class needs the [lens](http://doc.lubyk.org/lens.html) library.
+
   ## Usage example
 
     local osc = require 'osc'

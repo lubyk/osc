@@ -1,8 +1,8 @@
 package = "osc"
 version = "1.0.0-1"
 source = {
-  url = 'https://github.com/lubyk/osc/archive/REL-1.0.0.tar.gz',
-  dir = 'osc-REL-1.0.0',
+  url = 'git://github.com/lubyk/osc',
+  tag = 'REL-1.0.0',
 }
 description = {
   summary = "OpenSoundControl for Lua with some wrappers around lens.Socket.",
@@ -25,6 +25,8 @@ build = {
   modules = {
     -- Plain Lua files
     ['osc'            ] = 'osc/init.lua',
+    ['osc.Client'     ] = 'osc/Client.lua',
+    ['osc.Server'     ] = 'osc/Server.lua',
     -- C module
     ['osc.core'       ] = {
       sources = {

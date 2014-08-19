@@ -5,6 +5,8 @@
 
   The server must be created and run inside lens.Scheduler (see example below).
 
+  NOTE: This class needs the [lens](http://doc.lubyk.org/lens.html) library.
+
   ## Usage example
 
     local lens = require 'lens'
