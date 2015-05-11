@@ -38,11 +38,11 @@ lib.pack   = core.pack
 lib.unpack = core.unpack
 
 -- Current version respecting [semantic versioning](http://semver.org).
-lib.VERSION = '1.0.0'
+lib.VERSION = '1.0.1'
 
 lib.DEPENDS = { -- doc
-  -- Compatible with Lua 5.1, 5.2 and LuaJIT
-  "lua >= 5.1, < 5.3",
+  -- Compatible with Lua 5.1 to 5.3 and LuaJIT
+  "lua >= 5.1, < 5.4",
   -- Uses [Lubyk base library](http://doc.lubyk.org/lub.html)
   'lub >= 1.0.3, < 2.0',
 }

@@ -3,6 +3,9 @@
   # osc test
 
 --]]------------------------------------------------------
+package.path  = './?.lua;'..package.path
+package.cpath = './?.so;' ..package.cpath
+
 local lub    = require 'lub'
 local lut    = require 'lut'
 
